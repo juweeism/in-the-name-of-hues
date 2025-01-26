@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { render } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const digest = await getCollection('digest')
 ---
 
 <Layout>
-	<Welcome />
+    <div id="wrapper">
+        <h1>In the name of hues</h1>
+        <h3>A weekly digest on design, engineering, and everything in between.</h3>
+        <div id="digest-list">
+            {digest.map(async (d, i) => {
+                const { Content } = await render(d)
+
+                return (
+                    <details {...(i < 3 && { open: true })}>
+                        <summary>{d.data.date} {d.data.title}</summary>
+                        <Content />
+                    </details>
+                )
+            })}
+        </div>
+    </div>
 </Layout>
+
+<style>
+    #wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    #wrapper > *:not(img) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #digest-list {
+        margin: 3rem 0;
+    }
+
+</style>
