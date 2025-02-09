@@ -59,14 +59,14 @@ const localeOptions = {
                 return (
                 <div class="box-item p-2 md:p-3 rounded-xl md:rounded-2xl md:outline md:outline-solid md:outline-white md:outline-offset-[5px]">
                     <details 
-                        class="box-item-details py-1 px-2 hover:bg-white text-base/7 md:text-lg rounded-lg md:rounded-md md:outline-solid md:outline md:outline-white md:outline-offset-[5px]"
+                        class="box-item-details py-1 px-2 hover:bg-white text-lg rounded-lg md:rounded-md md:outline-solid md:outline md:outline-white md:outline-offset-[5px]"
                         {...{open: i === 0}}
                     >
                         <summary>
                             <span class="box-item-title">{d.data.title}</span>
                             <div class="box-item-date font-extralight text-sm">{d.data.pubDate.toLocaleDateString(undefined, localeOptions)}</div>
                         </summary>
-                        <div class="box-item-content mt-5 mb-3 text-xs md:text-base">
+                        <div class="box-item-content mt-5 mb-3 text-sm md:text-base">
                             <Content />
                         </div>
                     </details>
