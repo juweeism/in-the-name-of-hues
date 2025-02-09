@@ -10,7 +10,7 @@ export async function GET(context) {
         site: context.site,
         items: digest.map((d) => ({
             title: d.data.title,
-            pubDate: d.data.date,
+            pubDate: d.data.pubDate,
             tags: d.data.tags,
             content: d.body
         })),

@@ -1,21 +1,35 @@
+---
+import '@fontsource-variable/lexend-deca';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌈</text></svg>">
 		<meta name="generator" content={Astro.generator} />
-		<title>In the name of hues</title>
+		<title>in the name of hues</title>
 	</head>
 	<body>
+        <div id="wallp"></div>
 		<slot />
 	</body>
-    <footer>
-        <ul>
-            <li><a href="/about">About this Digest</a></li>
-            <li><a href="/archives">Digest Archives</a></li>
-            <li><a href="/rss.xml">RSS Feed</a></li>
+    <footer class="p-5 text-base md:text-center">
+        <ul class="my-3 flex gap-3 md:justify-center">
+            <li class="m-0"><a class="text-white" href="/rss.xml">rss</a></li>
+            <li class="m-0"><a class="text-white" href="https://x.com/juweerubyjane" target="_blank">twitter</a></li>
+            <li class="m-0"><a class="text-white" href="mailto:juwee.ruby.jane@gmail.com">email</a></li>
         </ul>
+        <div class="relative w-max md:mx-auto">
+            <div>
+                in the name of hues
+            </div>
+            <div class="flex gap-1">
+                by <a href="https://juw.ee" class="text-white" target="_blank">juwee</a>
+                <a class="block w-max rotate-[-9deg] text-xs text-white px-2 py-1 bg-fuchsia-600 rounded-full no-underline" target="_blank" href="https://ko-fi.com/juwee">support me</a>
+            </div>
+        </div>
     </footer>
 </html>
 
@@ -26,11 +40,34 @@
         padding: 0;
 		width: 100%;
 		height: 100%;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+        position: relative;
+        font-family: 'Lexend Deca Variable', sans-serif;
+        color: white;
 	}
+
+    #wallp {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -999;
+		width: 100dvw;
+		height: 100dvh;
+        background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+        background-image: radial-gradient(circle, #d16b6b, #d56b85, #d170a0, #c579ba, #b085d1, #919ae8, #6bacf4, #44bdf5, #4ad4ea, #7fe6d9, #b8f4cc, #edffcd);
+        background-image: radial-gradient(circle, #e33598, #fc4466, #f86c35, #dd9500, #b0b800, #7dc651, #47ce89, #00d2ba, #00c4e3, #00aeff, #008eff, #9e59ec);
+        background-image: radial-gradient(circle, #ab7fda, #699df8, #00b6fd, #00c9ea, #00d7cb, #5bd7a8, #8cd388, #b6cd70, #d2bb65, #e5a969, #ee9978, #ec8c8c);
+        background-image: radial-gradient(circle, #f39292, #f49f7d, #eab070, #d6c26d, #b9d37b, #8fd891, #5edbaf, #00dad0, #00cbed, #00b8ff, #519ffd, #9d7fe3);
+    }
+
+    h1 {
+        font-family: 'Gothic A1', Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
 
     footer {
         max-width: 700px;
-        margin: 0 auto;
+        margin: 3rem auto;
+        padding: 3rem 0;
+        font-family: 'Lexend Deca Variable', sans-serif;
     }
 </style>

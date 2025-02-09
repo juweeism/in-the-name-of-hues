@@ -2,44 +2,171 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { render } from 'astro:content';
+import '@fontsource-variable/lexend-deca';
+import '@fontsource-variable/open-sans';
 
 const digest = await getCollection('digest')
+const localeOptions = {
+  weekday: 'short',
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
+
 ---
 
 <Layout>
-    <div id="wrapper">
-        <h1>In the name of hues</h1>
-        <h3>A weekly digest on design, engineering, and everything in between.</h3>
-        <div id="digest-list">
-            {digest.map(async (d, i) => {
+<div id="wrapper">
+        <main class="mb-12 md:text-center w-full p-5">
+            <div class="pt-24 pb-3">
+                <details class="relative">
+                    <summary class="cursor-magnify title-glow flex md:justify-center md:text-center text-4xl md:text-7xl lowercase">
+                        In The <br/> 
+                        Name of Hues
+                    </summary>
+                    <div class="absolute top-[-0.9rem] animate-bounce md:left-[36%] bg-fuchsia-400 text-white font-mono text-xs rounded-full px-1">.title-glow</div>
+                    <div class="css-board my-3 flex md:justify-center md:w-max md:mx-auto"> 
+                        <pre class="font-mono text-xs text-start overflow-x-scroll w-full">
+.title-glow &#123;
+    font-family: 'Lexend Deca Variable', sans-serif;
+    font-weight: 900;
+    animation: color-change 3s infinite alternate;
+&#125;
+
+@keyframes color-change &#123;
+    0% &#123; text-shadow: 0 0 1rem cyan; &#125;
+    50% &#123; text-shadow: 0 0 1rem yellow; &#125;
+    100% &#123; text-shadow: 0 0 1rem skyblue; &#125;
+&#125;
+                        </pre>
+                    </div>
+                </details>
+                <h3 class="header-subtitle mt-3 font-light">
+                    A storehouse of links and readings found along the intersection of design and engineering. Weekly updates or whenever.
+                </h3>
+            </div>
+            <a href="/rss.xml" class="block rss md:mx-auto w-max relative no-underline">
+                <span>Also available on RSS →</span>
+            </a>
+        </main>
+        <div class="box flex flex-col md:gap-5">
+            <div class="rotate-[9deg] skew self-end mb-[-2rem] z-[999] text-xs uppercase bg-fuchsia-500 w-max px-3 py-1 font-black">
+                latest of <span class="">{digest.length}</span> posts
+            </div>
+            {[...digest].reverse().map(async (d, i) => {
                 const { Content } = await render(d)
 
                 return (
-                    <details {...(i < 3 && { open: true })}>
-                        <summary>{d.data.date} {d.data.title}</summary>
-                        <Content />
+                <div class="box-item p-2 md:p-3 rounded-xl md:rounded-2xl md:outline md:outline-solid md:outline-white md:outline-offset-[5px]">
+                    <details 
+                        class="box-item-details py-1 px-2 hover:bg-white text-base/7 md:text-lg rounded-lg md:rounded-md md:outline-solid md:outline md:outline-white md:outline-offset-[5px]"
+                        {...{open: i === 0}}
+                    >
+                        <summary>
+                            <span class="box-item-title">{d.data.title}</span>
+                            <div class="box-item-date font-extralight text-sm">{d.data.pubDate.toLocaleDateString(undefined, localeOptions)}</div>
+                        </summary>
+                        <div class="box-item-content mt-5 mb-3 text-xs md:text-base">
+                            <Content />
+                        </div>
                     </details>
+                </div>
                 )
             })}
         </div>
     </div>
 </Layout>
 
-<style>
+<style is:global>
+    h1, h3 {
+        font-family: 'Lexend Deca Variable', sans-serif;
+    }
+
+    .title-glow {
+        font-weight: 900;
+        color: white;
+        animation: color-change 3s infinite alternate;
+    }
+
     #wrapper {
         max-width: 700px;
-        margin: 0 auto;
         width: 100%;
-        height: 100%;
+        margin: 0 auto;
+        position: relative;
     }
 
-    #wrapper > *:not(img) {
-        padding-left: 1rem;
-        padding-right: 1rem;
+    .box-item {
+        background: rgba(255, 255, 255, .21);
+        backdrop-filter: blur(0.9rem);
     }
 
-    #digest-list {
-        margin: 3rem 0;
+    .box-item-details {
+        background: rgba(255, 255, 255, .5);
+        color: rgba(0, 0, 0, 0.8);
+        font-family: 'Lexend Deca Variable', sans-serif;
+        font-weight: 200;
+        transition: 1s;
+    }
+
+    .box-item-content {
+        font-weight: 300;
+    }
+
+    summary {
+        font-weight: bold;
+    }
+
+    ol {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        list-style-type: decimal;
+        margin-block-start: 0.9rem;
+        margin-block-end: 0.9rem;
+    }
+
+    ol li::marker {
+        content: counter(list-item) " "; /* Ensures only the number appears */
+    }
+
+    li {
+        margin-inline-start: 1rem;
+    }
+
+    a {
+            text-decoration: underline;
+    }
+
+    .box-item-content a {
+        font-weight: 600;
+    }
+
+    .box-item-content a:hover {
+        color: blue;
+    }
+
+    .rss {
+        border-radius: 99rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        padding: 0.3rem 0.6rem;
+        font-weight: bold;
+        outline: 3px solid rgba(255, 255, 255, 0.3);
+        transition: 0.1s;
+    }
+
+    @keyframes color-change {
+        0% { text-shadow: 0 0 1rem cyan; }
+        50% { text-shadow: 0 0 1rem yellow; }
+        100% { text-shadow: 0 0 1rem skyblue; }
+    }
+
+    .rss:hover {
+        outline-offset: 3px;
+    }
+
+    .cursor-magnify {
+        cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>🔍</text></svg>") 16 0,auto; /*!emojicursor.app*/
     }
 
 </style>
