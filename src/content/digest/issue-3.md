@@ -12,7 +12,6 @@ pubDate: 2025-02-09
 1. and of course, the [safont webring](https://xandra.cc/safonts/#about), short for 'font savant'. safont... savant... get it? 
   
 📕 Now Reading: [The Best Interface is No Interface](https://www.nointerface.com/)
-
 <br />
 <br />
 💬 Decorating this website took 2 days of my divided attention, more or less. More links and longer content to expect on the next few updates as I sort things out. I hid an easter egg somewhere good luck finding it.
