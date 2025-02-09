@@ -13,6 +13,8 @@ const localeOptions = {
   day: 'numeric',
 };
 
+const sortedDigest = digest.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+
 ---
 
 <Layout>
@@ -53,7 +55,7 @@ const localeOptions = {
             <div class="rotate-[9deg] skew self-end mb-[-2rem] z-[999] text-xs uppercase bg-fuchsia-500 w-max px-3 py-1 font-black">
                 latest of <span class="">{digest.length}</span> posts
             </div>
-            {[...digest].reverse().map(async (d, i) => {
+            {sortedDigest.map(async (d, i) => {
                 const { Content } = await render(d)
 
                 return (
