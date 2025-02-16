@@ -5,7 +5,7 @@ pubDate: 2025-02-16
 ---
 
 1. [Glisp](https://glisp.app) is an interactive computational design tool made by [Baku Hashimoto](https://baku89.com/). More open source tools like this via [Models of Interaction](https://github.com/prathyvsh/models-of-interaction) github repo.
-- ![Glisp by Baku Hashimoto](https://github.com/baku89/glisp/raw/main/docs/_media/screenshot.png)
+![Glisp by Baku Hashimoto](https://github.com/baku89/glisp/raw/main/docs/_media/screenshot.png)
 1. [PDF] [The Coming Age of Calm Technology](https://attachments.are.na/11968748/f25103711b83a16b87b1e346a0927333.pdf?1621201053) is a revised paper from Weiser & Brown's "Designing Calm Technology" (1996). Many computers share each of us.
 1. Hundredrabbit's article [An Approach To Computing And Sustainability Inspired From Permaculture](https://100r.co/site/computing_and_sustainability.html). What can we do for a sustained amount of time that has a strengthening effect on the ecosystem?
 1. Oh look! The article above also has a [conference talk](https://www.youtube.com/watch?v=T3u7bGgVspM) at StrangeLoop. *"we're building on the shoulders of giants, but when you're all the way up there on the giant's shoulders, it is really hard to steer it."*
