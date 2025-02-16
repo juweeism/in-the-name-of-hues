@@ -21,7 +21,7 @@ const sortedDigest = digest.sort((a, b) => new Date(b.data.pubDate) - new Date(a
 <div id="wrapper">
         <main class="mb-12 md:text-center w-full p-5">
             <div class="pt-24 pb-3">
-                <details class="relative">
+                <details class="title-header relative">
                     <summary class="cursor-magnify select-none title-glow flex md:justify-center md:text-center text-4xl md:text-7xl lowercase">
                         In The <br/> 
                         Name of Hues
@@ -59,9 +59,9 @@ const sortedDigest = digest.sort((a, b) => new Date(b.data.pubDate) - new Date(a
                 const { Content } = await render(d)
 
                 return (
-                <div class="box-item p-2 md:p-3 rounded-xl md:rounded-2xl md:outline md:outline-solid md:outline-white md:outline-offset-[5px]">
+                <div class="box-item p-2 md:p-3 rounded-xl md:rounded-2xl md:outline md:outline-solid md:outline-[1px] md:outline-white md:outline-offset-[5px]">
                     <details 
-                        class="box-item-details py-1 px-2 hover:bg-white text-lg rounded-lg md:rounded-md md:outline-solid md:outline md:outline-white md:outline-offset-[5px]"
+                        class="box-item-details py-1 px-2 hover:bg-white text-lg rounded-lg md:rounded-md md:outline-solid md:outline md:outline-[1px] md:outline-white md:outline-offset-[5px]"
                         {...{open: i === 0}}
                     >
                         <summary>
@@ -89,6 +89,10 @@ const sortedDigest = digest.sort((a, b) => new Date(b.data.pubDate) - new Date(a
         color: white;
         animation: color-change 3s infinite alternate;
     }
+
+    .title-header > summary::-webkit-details-marker {
+      display: none;
+    }    
 
     #wrapper {
         max-width: 700px;
