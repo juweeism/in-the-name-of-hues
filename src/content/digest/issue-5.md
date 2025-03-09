@@ -33,5 +33,5 @@ There's more but it's your turn now I am handing you the shovel so you could dig
 
 ##### post notes
 
-my tab window is surprisingly vacant nowadays. i should do better. anyway unrelated extra but here is a page full of [programmer quotes]() which i sent to Savy.
+my tab window is surprisingly vacant nowadays. i should do better. anyway unrelated extra but here is a page full of [programmer quotes](https://gerlacdt.github.io/blog/posts/programming-quotes/) which i sent to Savy.
 
